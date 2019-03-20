@@ -2,7 +2,7 @@
 Scroll the score to a song across a browser window to promote group singing.
 
 ## In Action
-Until I figure out why github pages isn't working, you can view the code in action at [laurenandlloyd.com/chorus](http://laurenandlloyd.com/chorus)
+You can view the code in action at [https://lincolnlutheran.github.io/music-scroller](https://lincolnlutheran.github.io/music-scroller/) or [laurenandlloyd.com/chorus](http://laurenandlloyd.com/chorus).
 
 ## Use
 Put the files index.php and script.js in a directory. Create the directory /images in the same location and put the image file(s) of the score in that directory. Point your browser at index.php. You can use the space bar to pause the scrolling and the up/down arrows to control the speed.
