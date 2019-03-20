@@ -7,7 +7,7 @@ Put the files index.php and script.js in a directory. Create the directory /imag
 ## Options
 To automatically control the speed of the score, you can cut the score image into different images. Indicate the order of the images by adding a number to the beginning of the image and indicate the speed by adding a number from 1-9:
 
-01-04-hallelujah-chorus.png
-02-02-hallelujah-chorus.png
-03-05-hallelujah-chorus.png
+01-04-hallelujah-chorus.png  
+02-02-hallelujah-chorus.png  
+03-05-hallelujah-chorus.png  
 
