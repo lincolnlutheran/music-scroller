@@ -1,0 +1,31 @@
+<html>
+  <head>
+	<style> 
+		#chorus {
+			position: relative;
+			-webkit-animation-name: example; /* Chrome, Safari, Opera */
+			-webkit-animation-duration: 60s; /* Chrome, Safari, Opera */
+			-webkit-animation-timing-function: linear;  /* Chrome, Safari, Opera */
+			animation-name: example;
+			animation-duration: 30s;
+			animation-timing-function: linear;
+		}
+
+		/* Chrome, Safari, Opera */
+		@-webkit-keyframes example {
+			0%   {left:0px; top:0px;}
+			100% {left:-7000px; top:0px;}
+		}
+
+		/* Standard syntax */
+		@keyframes example {
+			0%   {left:0px; top:0px;}
+			100% {left:-7000px; top:0px;}
+		}
+		</style>
+
+  </head>
+  <body>
+    <img id="chorus" src="./chorus.png" />
+  </body>
+</html>
