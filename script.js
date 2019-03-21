@@ -20,23 +20,30 @@ $(function(){
 		var output = document.getElementById("output");
 		output.appendChild(paragraph);
 	}
+
+	// given an image URL, extract all the info that's contained in the filename.
+	// (e.g. ID and speed)
+	function getImageInfo(imageLocation) {
+		// replace everything before the last / or \ with an empty string to get the filename.
+		const fileName = imageLocation.replace(/^.*[\\\/]/, '');
+		// remove the extension
+		const fileNameWithoutExtension = fileName.split('.')[0];
+		const [id, speed] = fileNameWithoutExtension.split('-').map(Number);
+		return { id, speed };
+	}
 	
 	// Setup
-	var speeds = $("#speeds").text();
 	var customizedSpeed = false; 
 	var scroller = $('#scroller div.innerScrollArea');
 	var startButton = $('#startButton');
 	var boolSwitch = true;
-	var scrollerContent = scroller.children('ul');
-	//
-	// I commented out the following line. It seemed to duplicate each <li> image a
-	// second time and that didn't seem right, but I could be wrong --LS 11.12.2016
-	//
-	//scrollerContent.children().clone().appendTo(scrollerContent);
+	const speeds = new Array(scrollerContent.length);
+
 	var currentX = 0;
-	var listWidth = new Array();
-	listWidth.push("0");
-	scrollerContent.children().each(function(){
+	var listWidth = [0];
+	scroller.children('img').each(function(){
+		const { id, speed } = getImageInfo(this.src);
+		speeds[id] = speed;
 		var $this = $(this);
 		currentX += $this.outerWidth(true);
 		listWidth.push(currentX);
@@ -87,7 +94,7 @@ $(function(){
 		
 		if (listWidth[pic] < currentX) {
 			if (customizedSpeed == false) {
-				speed = speeds.charAt(pic+1);
+				speed = speeds[pic + 1];
 				toNewSpeed(speed);
 			}
 			pic += 1;
