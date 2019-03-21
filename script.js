@@ -71,7 +71,7 @@ $(function(){
 		}
 	
 	};
-	//startButton.click(startStop);
+	startButton.click(startStop);
 	
 	// Start scrolling
 	var pic = 0;
@@ -125,7 +125,7 @@ $(function(){
 			toNewSpeed(speed);
 		    event.preventDefault();
 		}
-		else if (event.which == '32') {  spacebar
+		else if (event.which == '32') {  //spacebar
 			startStop();
 			event.preventDefault();
 		}
