@@ -38,7 +38,6 @@ $(function(){
 	listWidth.push("0");
 	scrollerContent.children().each(function(){
 		var $this = $(this);
-		$this.css('left', currentX);
 		currentX += $this.outerWidth(true);
 		listWidth.push(currentX);
 	});
