@@ -86,9 +86,13 @@ $(function(){
 	// Represents how many pixels the image display is shifted to the left
 	var currentX = 0;
 	var scroll = function() {
-		// if the current image is the last image, stop the scroll
-		// (e.g. if we have images [1, 2, 3] and imgId is 3, stop scrolling)
-		if (imgId >= images.length) {
+		// if:
+		//   1. the current image is the last image
+		//      (e.g. if we have images [1, 2, 3] and imgId is 3)
+		//   2. the right edge of the image is visible
+		//      (i.e. currentX is at least imgBoundary + (image width - scroller width))
+		// then stop the scroll
+		if (imgId >= images.length && currentX >= imgBoundary + (images[imgId - 1].width - scroller[0].getBoundingClientRect().width)) {
 			toNewSpeed(0);
 			clearInterval(interval);
 			return;
@@ -99,14 +103,14 @@ $(function(){
 		// shift the image display left by currentX pixels
 		scroller[0].style.transform = `translateX(-${currentX}px)`
 		// if we've crossed over into a new image,
-		if (currentX > imgBoundary + images[imgId].width) {
+		if (currentX > imgBoundary + images[imgId - 1].width) {
 			// if we haven't set a custom speed, change the speed to that of the new image
 			if (!customizedSpeed) {
 				speed = speeds[imgId + 1];
 				toNewSpeed(speed);
 			}
 			// add the previous image's width to imgBoundary
-			imgBoundary += images[imgId].width;
+			imgBoundary += images[imgId - 1].width;
 			// increase imgId by 1 (assumes image IDs progress linearly from 1 to n)
 			imgId++;
 		}
