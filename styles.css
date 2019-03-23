@@ -1,8 +1,8 @@
 #scroller {
 	position: relative;
 	margin: 0 auto;
+	overflow: hidden;
 }
 #scroller .innerScrollArea {
-	overflow: hidden;
 	display: flex;
 }
